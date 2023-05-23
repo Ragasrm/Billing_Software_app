@@ -6,7 +6,9 @@ const MyTable = (props: any) => {
     const { data, onDelete } = props;
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      {
+        data.length > 0 ? 
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             {/* Assuming your data object keys as columns */}
@@ -28,7 +30,10 @@ const MyTable = (props: any) => {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+      :
+      <h2>No Record Found..!</h2>
+      }
+       </TableContainer>
   );
 }
 
